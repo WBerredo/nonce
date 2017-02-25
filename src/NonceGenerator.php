@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
+ * Generator for Wordpress Nonces
  * User: berredo
  * Date: 2/25/17
  * Time: 1:14 AM
