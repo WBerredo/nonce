@@ -68,4 +68,8 @@ class NonceGenerator
 
         return wp_nonce_url($this->url, $this->action, $keyName);
     }
+
+    public function generateNonce() {
+        return wp_create_nonce($this->action);
+    }
 }
