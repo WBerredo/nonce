@@ -56,9 +56,9 @@ class NonceGenerator
     }
 
     /**
-     * Generate a nonce url
+     * Retrieves a nonce url
      *
-     * @param string (optional) $keyName. Nonce param name. Default is _wpnonce
+     * @param string (optional) $keyName . Nonce param name. Default is _wpnonce
      *
      * @return string
      */
@@ -69,7 +69,26 @@ class NonceGenerator
         return wp_nonce_url($this->url, $this->action, $keyName);
     }
 
-    public function generateNonce() {
+    /**
+     * Retrieves the nonce hidden form field.
+     *
+     * @param string $name
+     * @param bool $referer
+     *
+     * @return string
+     */
+    public function generateNonceField($name = '_wpnonce', $referer = true)
+    {
+        return wp_nonce_field($this->action, $name, $referer, false);
+    }
+
+    /**
+     * Retrieves a general nonce
+     *
+     * @return string
+     */
+    public function generateNonce()
+    {
         return wp_create_nonce($this->action);
     }
 }
