@@ -1,5 +1,5 @@
 {
-    "name": "wberredo/wp-nonce",
+    "name": "wberredo/nonce",
     "homepage": "https://github.com/wberredo/nonce",
     "description": "Use wordpress nonce functions in a object oriented environment.",
     "keywords": ["wp", "nonce", "OOP", "wordpress"],
