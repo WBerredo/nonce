@@ -9,6 +9,8 @@
 class NonceVerifier
 {
     /**
+     * Verify nonce
+     *
      * @param $nonce
      * @param $action
      *
@@ -20,6 +22,8 @@ class NonceVerifier
     }
 
     /**
+     * Verify a nonce in a url
+     *
      * @param $nonceUrl
      * @param $action
      * @param $keyName
@@ -34,11 +38,28 @@ class NonceVerifier
         return self::verify($params[$keyName], $action);
     }
 
+    /**
+     *Tests either if the current request carries a valid nonce,
+     * or if the current request was referred from an administration screen
+     *
+     * @param int $action
+     * @param string $keyName
+     * @return false|int
+     */
     public static function verifyAdminReferer($action = -1, $keyName = '_wpnonce')
     {
         return check_admin_referer($action, $keyName);
     }
 
+
+    /**
+     * Verifies the AJAX request, to prevent any processing of
+     * requests which are passed in by third-party sites or systems.
+     *
+     * @param int $action
+     * @param string $keyName
+     * @return false|int
+     */
     public static function verifyAjaxReferer($action = -1, $keyName = '_wpnonce')
     {
         return check_ajax_referer($action, $keyName);

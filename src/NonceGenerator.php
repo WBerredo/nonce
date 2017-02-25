@@ -30,7 +30,7 @@ class NonceGenerator
     }
 
     /**
-     * set action to generate onces
+     * set action to generate nonces
      *
      * @param string $action
      * @return $this
@@ -74,12 +74,13 @@ class NonceGenerator
      *
      * @param string $name
      * @param bool $referer
+     * @param bool $echo
      *
      * @return string
      */
-    public function generateNonceField($name = '_wpnonce', $referer = true)
+    public function generateNonceField($name = '_wpnonce', $referer = true, $echo = false)
     {
-        return wp_nonce_field($this->action, $name, $referer, false);
+        return wp_nonce_field($this->action, $name, $referer, $echo);
     }
 
     /**
@@ -90,5 +91,24 @@ class NonceGenerator
     public function generateNonce()
     {
         return wp_create_nonce($this->action);
+    }
+
+    /**
+     * Retrieves or displays the referer hidden form field.
+     *
+     * @param $echo
+     * @return string
+     */
+    public function generateRefererField($echo) {
+        return wp_referer_field( $echo );
+    }
+
+    /**
+     * Display 'Are you sure you want to do this?' message to confirm the action being taken.
+     *
+     * @param $action
+     */
+    public static function showAys($action) {
+        wp_nonce_ays($action);
     }
 }
