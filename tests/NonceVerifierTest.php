@@ -58,4 +58,18 @@ class NonceVerifierTest extends WP_UnitTestCase
 
         $this->assertEquals(NonceVerifier::verify($nonce, self::$DEFAULT_ACTION), true);
     }
+
+    public function testAdminReferer() {
+        $nonce = self::$nonceGenerator->generateNonce();
+
+        $_REQUEST[self::$DEFAULT_KEY_NAME] = $nonce;
+        $this->assertEquals(NonceVerifier::verifyAdminReferer(self::$DEFAULT_ACTION), true);
+    }
+
+    public function testAjaxReferer() {
+        $nonce = self::$nonceGenerator->generateNonce();
+
+        $_REQUEST[self::$DEFAULT_KEY_NAME] = $nonce;
+        $this->assertEquals(NonceVerifier::verifyAjaxReferer(self::$DEFAULT_ACTION), true);
+    }
 }
