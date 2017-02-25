@@ -115,7 +115,7 @@ if(NonceVerifier::verifyAjaxReferer($defaultAction)) {
 
 ## Tests
 
-1. **Install PHPUnit.** WordPress uses PHPUnit, the standard for unit
+1. **Install PHPUnit.** WordPress uses PHPUnit, the standard for unit 
 testing PHP projects. Installation instructions can be found in
 [the PHPUnit manual](https://phpunit.de/manual/current/en/installation.html) 
 or on the [PHPUnit Github repository](https://github.com/sebastianbergmann/phpunit#readme).
@@ -123,10 +123,10 @@ or on the [PHPUnit Github repository](https://github.com/sebastianbergmann/phpun
 2. **Check out the test repository.** The WordPress tests live in 
 the core development repository, 
 at https://develop.svn.wordpress.org/trunk/:
-```bash
-svn co https://develop.svn.wordpress.org/trunk/ wordpress-develop
-cd wordpress-develop
-```
+  ```bash
+  svn co https://develop.svn.wordpress.org/trunk/ wordpress-develop
+  cd wordpress-develop
+  ```
 
 3. **Create an empty MySQL database.** The test suite will delete all 
 data from all tables for whichever MySQL database it is configured.
@@ -136,23 +136,24 @@ Use a separate database.
 to wp-tests-config.php, and enter your database credentials.
 Use a separate database.
 
-5. **Change the path of Wordpress project** 
-in the bootstrap.php file of the plugin
-```php
-/**
-* The path to the WordPress tests checkout.
-*/
-define('WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/');
-```
+5. **Change the path of Wordpress project** in the bootstrap.php file of the plugin
+  ```php
+  /**
+  * The path to the WordPress tests checkout.
+  */
+  define('WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/');
+  ```
 
 6. **Go to plugin's folder**
-```bash
-cd vendor/wberredo/nonce
-```
+ 
+  ```bash
+  cd vendor/wberredo/nonce
+  ```
 7. **Run phpunit** to test
-```bash
-phpunit 
-```
+  
+  ```bash
+  phpunit 
+  ```
 
 ## Thanks to
 * [Wordpress Nonces Documentation](https://codex.wordpress.org/WordPress_Nonces)
