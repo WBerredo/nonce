@@ -1,3 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/wberredo/nonce/v/stable)](https://packagist.org/packages/wberredo/nonce)
+[![Latest Unstable Version](https://poser.pugx.org/wberredo/nonce/v/unstable)](https://packagist.org/packages/wberredo/nonce)
+[![License](https://poser.pugx.org/wberredo/nonce/license)](https://packagist.org/packages/wberredo/nonce)
+
 # nonce
 Use wordpress nonce functions in a object oriented environment.
 
