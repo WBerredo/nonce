@@ -29,6 +29,7 @@ require_once WP_TESTS_DIR . 'includes/functions.php';
 function _manually_load_plugin() {
     require 'src/NonceGenerator.php';
     require 'src/NonceVerifier.php';
+    require 'src/NonceConfig.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
