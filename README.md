@@ -60,9 +60,9 @@ $nonceGen
     ->generateNonceField("nonce", true, true);
 ```
 
-To  Display 'Are you sure you want to do this?' (or the new message
-set with NonceConfig#setErrorMessage) message to confirm the 
-action being taken.
+To  Display 'Are you sure you want to do this?' message
+(or the new message set with NonceConfig#setErrorMessage)
+to confirm the action being taken.
 ```php
 NonceGenerator::showAys('action');
 ```
@@ -120,7 +120,7 @@ testing PHP projects. Installation instructions can be found in
 [the PHPUnit manual](https://phpunit.de/manual/current/en/installation.html) 
 or on the [PHPUnit Github repository](https://github.com/sebastianbergmann/phpunit#readme).
 
-2. Check out the test repository. The WordPress tests live in 
+2. **Check out the test repository.** The WordPress tests live in 
 the core development repository, 
 at https://develop.svn.wordpress.org/trunk/:
 ```bash
@@ -128,15 +128,16 @@ svn co https://develop.svn.wordpress.org/trunk/ wordpress-develop
 cd wordpress-develop
 ```
 
-3. Create an empty MySQL database. The test suite will delete all 
+3. **Create an empty MySQL database.** The test suite will delete all 
 data from all tables for whichever MySQL database it is configured.
 Use a separate database.
 
-4. Set up a config file. Copy wp-tests-config-sample.php 
+4. **Set up a config file.** Copy wp-tests-config-sample.php 
 to wp-tests-config.php, and enter your database credentials.
 Use a separate database.
 
-5. Change the paths of Wordpress in the bootstrap.php file of the plugin
+5. **Change the path of Wordpress project** 
+in the bootstrap.php file of the plugin
 ```php
 /**
 * The path to the WordPress tests checkout.
@@ -144,11 +145,11 @@ Use a separate database.
 define('WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/');
 ```
 
-6. Go to plugin's folder
+6. **Go to plugin's folder**
 ```bash
 cd vendor/wberredo/nonce
 ```
-7. Run phpunit to test
+7. **Run phpunit** to test
 ```bash
 phpunit 
 ```
