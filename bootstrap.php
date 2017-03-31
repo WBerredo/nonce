@@ -7,7 +7,7 @@
 /**
  * The path to the WordPress tests checkout.
  */
-define('WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/');
+define( 'WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/' );
 
 /**
  * The WordPress tests functions.
@@ -27,10 +27,11 @@ require_once WP_TESTS_DIR . 'includes/functions.php';
  * loading your plugin, since it won't be installed.
  */
 function _manually_load_plugin() {
-    require 'src/NonceGenerator.php';
-    require 'src/NonceVerifier.php';
-    require 'src/NonceConfig.php';
+    require 'src/class-nonce-generator.php';
+    require 'src/class-nonce-verifier.php';
+    require 'src/class-nonce-config.php';
 }
+
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
 
