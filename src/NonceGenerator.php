@@ -22,6 +22,7 @@ class NonceGenerator
 
     /**
      * Nonce constructor.
+     *
      * @param $action
      */
     public function __construct($action = -1)
@@ -33,6 +34,7 @@ class NonceGenerator
      * set action to generate nonces
      *
      * @param string $action
+     *
      * @return $this
      */
     public function setAction($action)
@@ -46,6 +48,7 @@ class NonceGenerator
      * set url to generate nonce url
      *
      * @param $url
+     *
      * @return $this
      */
     public function setUrl($url)
@@ -73,8 +76,8 @@ class NonceGenerator
      * Retrieves the nonce hidden form field.
      *
      * @param string $name
-     * @param bool $referer
-     * @param bool $echo
+     * @param bool   $referer
+     * @param bool   $echo
      *
      * @return string
      */
@@ -97,10 +100,12 @@ class NonceGenerator
      * Retrieves or displays the referer hidden form field.
      *
      * @param $echo
+     *
      * @return string
      */
-    public function generateRefererField($echo) {
-        return wp_referer_field( $echo );
+    public function generateRefererField($echo)
+    {
+        return wp_referer_field($echo);
     }
 
     /**
@@ -108,7 +113,8 @@ class NonceGenerator
      *
      * @param $action
      */
-    public static function showAys($action) {
+    public static function showAys($action)
+    {
         wp_nonce_ays($action);
     }
 }

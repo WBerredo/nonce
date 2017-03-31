@@ -42,8 +42,9 @@ class NonceVerifier
      *Tests either if the current request carries a valid nonce,
      * or if the current request was referred from an administration screen
      *
-     * @param int $action
+     * @param int    $action
      * @param string $keyName
+     *
      * @return false|int
      */
     public static function verifyAdminReferer($action = -1, $keyName = '_wpnonce')
@@ -56,8 +57,9 @@ class NonceVerifier
      * Verifies the AJAX request, to prevent any processing of
      * requests which are passed in by third-party sites or systems.
      *
-     * @param int $action
+     * @param int    $action
      * @param string $keyName
+     *
      * @return false|int
      */
     public static function verifyAjaxReferer($action = -1, $keyName = '_wpnonce')

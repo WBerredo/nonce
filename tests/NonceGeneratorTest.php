@@ -47,7 +47,8 @@ class NonceGeneratorTest extends WP_UnitTestCase
         $this->assertTrue(array_key_exists($customKeyName, $params));
     }
 
-    public function testGenerateNonce() {
+    public function testGenerateNonce()
+    {
         $nonce = self::$nonceGenerator->generateNonce();
 
         $this->assertNotNull($nonce);

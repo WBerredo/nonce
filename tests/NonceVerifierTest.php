@@ -26,20 +26,23 @@ class NonceVerifierTest extends WP_UnitTestCase
             ->setUrl(self::$DEFAULT_URL);
     }
 
-    public function testVerifyNonce() {
+    public function testVerifyNonce()
+    {
         $nonce = self::$nonceGenerator->generateNonce();
 
         $this->assertEquals(NonceVerifier::verify($nonce, self::$DEFAULT_ACTION), true);
     }
 
-    public function testVerifyNonceUrlDefaultKeyName() {
+    public function testVerifyNonceUrlDefaultKeyName()
+    {
         $completeUrl = self::$nonceGenerator->generateNonceUrl();
 
         $verification = NonceVerifier::verifyUrl($completeUrl, self::$DEFAULT_ACTION, self::$DEFAULT_KEY_NAME);
         $this->assertEquals($verification, true);
     }
 
-    public function testVerifyNonceUrlCustomKeyName() {
+    public function testVerifyNonceUrlCustomKeyName()
+    {
         $customKeyName = "custom25";
         $completeUrl = self::$nonceGenerator->generateNonceUrl($customKeyName);
 
@@ -47,7 +50,8 @@ class NonceVerifierTest extends WP_UnitTestCase
         $this->assertEquals($verification, true);
     }
 
-    public function testNonceField() {
+    public function testNonceField()
+    {
         $nonceField = self::$nonceGenerator->generateNonceField();
 
         $dom = new DOMDocument();
@@ -59,14 +63,16 @@ class NonceVerifierTest extends WP_UnitTestCase
         $this->assertEquals(NonceVerifier::verify($nonce, self::$DEFAULT_ACTION), true);
     }
 
-    public function testAdminReferer() {
+    public function testAdminReferer()
+    {
         $nonce = self::$nonceGenerator->generateNonce();
 
         $_REQUEST[self::$DEFAULT_KEY_NAME] = $nonce;
         $this->assertEquals(NonceVerifier::verifyAdminReferer(self::$DEFAULT_ACTION), true);
     }
 
-    public function testAjaxReferer() {
+    public function testAjaxReferer()
+    {
         $nonce = self::$nonceGenerator->generateNonce();
 
         $_REQUEST[self::$DEFAULT_KEY_NAME] = $nonce;
