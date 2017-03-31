@@ -6,8 +6,7 @@
  * Date: 2/25/17
  * Time: 1:14 AM
  */
-class NonceGenerator
-{
+class NonceGenerator {
 	/**
 	 * @var $action
 	 */
@@ -25,8 +24,7 @@ class NonceGenerator
 	 *
 	 * @param $action
 	 */
-	public function __construct($action = -1)
-	{
+	public function __construct( $action = -1 ) {
 		$this->action = $action;
 	}
 
@@ -37,8 +35,7 @@ class NonceGenerator
 	 *
 	 * @return $this
 	 */
-	public function setAction($action)
-	{
+	public function setAction( $action ) {
 		$this->action = $action;
 
 		return $this;
@@ -51,8 +48,7 @@ class NonceGenerator
 	 *
 	 * @return $this
 	 */
-	public function setUrl($url)
-	{
+	public function setUrl( $url ) {
 		$this->url = $url;
 
 		return $this;
@@ -65,11 +61,12 @@ class NonceGenerator
 	 *
 	 * @return string
 	 */
-	public function generateNonceUrl($keyName = '_wpnonce')
-	{
-		if (!$this->url) return null;
+	public function generateNonceUrl( $keyName = '_wpnonce' ) {
+		if ( !$this->url ) {
+		    return null;
+        }
 
-		return wp_nonce_url($this->url, $this->action, $keyName);
+		return wp_nonce_url( $this->url, $this->action, $keyName );
 	}
 
 	/**
@@ -81,9 +78,8 @@ class NonceGenerator
 	 *
 	 * @return string
 	 */
-	public function generateNonceField($name = '_wpnonce', $referer = true, $echo = false)
-	{
-		return wp_nonce_field($this->action, $name, $referer, $echo);
+	public function generateNonceField( $name = '_wpnonce', $referer = true, $echo = false ) {
+		return wp_nonce_field( $this->action, $name, $referer, $echo );
 	}
 
 	/**
@@ -91,9 +87,8 @@ class NonceGenerator
 	 *
 	 * @return string
 	 */
-	public function generateNonce()
-	{
-		return wp_create_nonce($this->action);
+	public function generateNonce()	{
+		return wp_create_nonce( $this->action );
 	}
 
 	/**
@@ -103,9 +98,8 @@ class NonceGenerator
 	 *
 	 * @return string
 	 */
-	public function generateRefererField($echo)
-	{
-		return wp_referer_field($echo);
+	public function generateRefererField( $echo ) {
+		return wp_referer_field( $echo );
 	}
 
 	/**
@@ -113,8 +107,7 @@ class NonceGenerator
 	 *
 	 * @param $action
 	 */
-	public static function showAys($action)
-	{
-		wp_nonce_ays($action);
+	public static function showAys( $action ) {
+		wp_nonce_ays( $action );
 	}
 }

@@ -6,8 +6,7 @@
  * Date: 2/25/17
  * Time: 1:28 AM
  */
-class NonceVerifier
-{
+class NonceVerifier {
 	/**
 	 * Verify nonce
 	 *
@@ -16,9 +15,8 @@ class NonceVerifier
 	 *
 	 * @return boolean
 	 */
-	public static function verify($nonce, $action = -1)
-	{
-		return wp_verify_nonce($nonce, $action);
+	public static function verify( $nonce, $action = -1 ) {
+		return wp_verify_nonce( $nonce, $action );
 	}
 
 	/**
@@ -30,12 +28,11 @@ class NonceVerifier
 	 *
 	 * @return boolean
 	 */
-	public static function verifyUrl($nonceUrl, $action = -1, $keyName)
-	{
-		$queryUrl = parse_url($nonceUrl, PHP_URL_QUERY);
-		parse_str($queryUrl, $params);
+	public static function verifyUrl( $nonceUrl, $action = -1, $keyName )	{
+		$queryUrl = parse_url( $nonceUrl, PHP_URL_QUERY );
+		parse_str( $queryUrl, $params );
 
-		return self::verify($params[$keyName], $action);
+		return self::verify( $params[$keyName], $action );
 	}
 
 	/**
@@ -47,9 +44,9 @@ class NonceVerifier
 	 *
 	 * @return false|int
 	 */
-	public static function verifyAdminReferer($action = -1, $keyName = '_wpnonce')
+	public static function verifyAdminReferer( $action = -1, $keyName = '_wpnonce' )
 	{
-		return check_admin_referer($action, $keyName);
+		return check_admin_referer( $action, $keyName );
 	}
 
 
@@ -62,8 +59,8 @@ class NonceVerifier
 	 *
 	 * @return false|int
 	 */
-	public static function verifyAjaxReferer($action = -1, $keyName = '_wpnonce')
+	public static function verifyAjaxReferer( $action = -1, $keyName = '_wpnonce' )
 	{
-		return check_ajax_referer($action, $keyName);
+		return check_ajax_referer( $action, $keyName );
 	}
 }

@@ -24,10 +24,10 @@ If you want to change some configs before you start to generate
 nonces, you will use *NonceConfig* class.
 ```php
 // set lifetime for 4 hours
-NonceConfig::setNonceLifetime(4 * HOUR_IN_SECONDS);
+NonceConfig::setNonceLifetime( 4 * HOUR_IN_SECONDS );
 
 // set message showed when showAys is called
-NonceConfig::setErrorMessage("Are you sure");
+NonceConfig::setErrorMessage( "Are you sure" );
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ class.
 ### NonceGenerator
 To generate a nonce
 ```php
-$nonceGen = new NonceGenerator("default-action");
+$nonceGen = new NonceGenerator( "default-action" );
 $nonce = $nonceGen->generateNonce();
 ```
 
@@ -47,8 +47,8 @@ To generate a URL nonce
 // you can also set parameters with set functions
 $nonceGen = new NonceGenerator();
 $completeUrl = $nonceGen
-                    ->setUrl("http://github.com/WBerredo")
-                    ->setAction("default_action")
+                    ->setUrl( "http://github.com/WBerredo" )
+                    ->setAction( "default_action" )
                     ->generateNonceUrl();
 ```
 
@@ -56,24 +56,24 @@ To retrieve a nonce field.
 ```php
 $nonceGen = new NonceGenerator();
 $nonceField = $nonceGen
-                    ->setAction("default_action")
-                    ->generateNonceField("nonce", true, false);
+                    ->setAction( "default_action" )
+                    ->generateNonceField( "nonce", true, false );
                     
 // to print the nonce field you have to set the last param as true
 $nonceGen
-    ->generateNonceField("nonce", true, true);
+    ->generateNonceField( "nonce", true, true );
 ```
 
 To  Display 'Are you sure you want to do this?' message
 (or the new message set with NonceConfig#setErrorMessage)
 to confirm the action being taken.
 ```php
-NonceGenerator::showAys('action');
+NonceGenerator::showAys( 'action' );
 ```
 ### NonceVerifier
 To verify a nonce
 ```php
-if(NonceVerifier::verify($nonce, $defaultAction)) {
+if( NonceVerifier::verify( $nonce, $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -82,7 +82,7 @@ if(NonceVerifier::verify($nonce, $defaultAction)) {
 
 To verify a URL nonce
 ```php
-if(NonceVerifier::verifyUrl($completeUrl, $defaultAction)) { 
+if( NonceVerifier::verifyUrl( $completeUrl, $defaultAction ) ) { 
 // if is valid
 } else {
 // if is not valid
@@ -92,7 +92,7 @@ if(NonceVerifier::verifyUrl($completeUrl, $defaultAction)) {
 To tests either if the current request carries a valid nonce,
 or if the current request was referred from an administration screen
 ```php
-if(NonceVerifier::verifyAdminReferer($defaultAction)) {
+if( NonceVerifier::verifyAdminReferer( $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -102,7 +102,7 @@ if(NonceVerifier::verifyAdminReferer($defaultAction)) {
 To verify the AJAX request, to prevent any processing of
 requests which are passed in by third-party sites or systems.
 ```php
-if(NonceVerifier::verifyAjaxReferer($defaultAction)) {
+if( NonceVerifier::verifyAjaxReferer( $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid

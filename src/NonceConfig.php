@@ -7,8 +7,7 @@
  * Date: 2/25/17
  * Time: 3:14 AM
  */
-class NonceConfig
-{
+class NonceConfig {
 	/**
 	 * @var int $nonceLifetimeInSeconds
 	 */
@@ -19,11 +18,10 @@ class NonceConfig
 	 */
 	private static $nonceErrorMessage;
 
-	public static function setNonceLifetime($seconds)
-	{
+	public static function setNonceLifetime( $seconds ) {
 		self::$nonceLifetimeInSeconds = $seconds;
 
-		add_filter('nonce_life', function () {
+		add_filter( 'nonce_life', function () {
 			return NonceConfig::$nonceLifetimeInSeconds;
 		});
 	}
@@ -33,11 +31,10 @@ class NonceConfig
 	 *
 	 * @param string $message
 	 */
-	public static function setErrorMessage($message)
-	{
+	public static function setErrorMessage( $message ) {
 		self::$nonceErrorMessage = $message;
 
-		add_filter('gettext', function ($translation) {
+		add_filter( 'gettext', function ( $translation ) {
 			return self::$nonceErrorMessage;
 		});
 	}

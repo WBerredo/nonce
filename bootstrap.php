@@ -26,14 +26,13 @@ require_once WP_TESTS_DIR . 'includes/functions.php';
  * You will also need to perform any installation necessary after
  * loading your plugin, since it won't be installed.
  */
-function _manually_load_plugin()
-{
+function _manually_load_plugin() {
     require 'src/NonceGenerator.php';
     require 'src/NonceVerifier.php';
     require 'src/NonceConfig.php';
 }
 
-tests_add_filter('muplugins_loaded', '_manually_load_plugin');
+tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
 
 /**
