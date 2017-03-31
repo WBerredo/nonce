@@ -8,8 +8,8 @@
  */
 class NonceGeneratorTest extends WP_UnitTestCase
 {
-    private static $DEFAULT_ACTION = "default_action";
-    private static $DEFAULT_URL = "https://github.com/WBerredo/nonce";
+    private static $DEFAULT_ACTION = 'default_action';
+    private static $DEFAULT_URL = 'https://github.com/WBerredo/nonce';
 
     private static $DEFAULT_KEY_NAME = '_wpnonce';
 
@@ -38,7 +38,7 @@ class NonceGeneratorTest extends WP_UnitTestCase
 
     public function testGenerateNonceUrlCustomKeyName()
     {
-        $customKeyName = "custom";
+        $customKeyName = 'custom';
         $completeUrl = self::$nonceGenerator->generateNonceUrl($customKeyName);
 
         $queryUrl = parse_url($completeUrl, PHP_URL_QUERY);
