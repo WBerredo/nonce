@@ -73,7 +73,7 @@ Nonce_Generator::show_ays( 'action' );
 ### Nonce_Verifier
 To verify a nonce
 ```php
-if( Nonce_Verifier::verify( $nonce, $defaultAction ) ) {
+if ( Nonce_Verifier::verify( $nonce, $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -82,7 +82,7 @@ if( Nonce_Verifier::verify( $nonce, $defaultAction ) ) {
 
 To verify a URL nonce
 ```php
-if( Nonce_Verifier::verify_url( $complete_url, $defaultAction ) ) { 
+if ( Nonce_Verifier::verify_url( $complete_url, $defaultAction ) ) { 
 // if is valid
 } else {
 // if is not valid
@@ -92,7 +92,7 @@ if( Nonce_Verifier::verify_url( $complete_url, $defaultAction ) ) {
 To tests either if the current request carries a valid nonce,
 or if the current request was referred from an administration screen
 ```php
-if( Nonce_Verifier::verify_admin_referer( $defaultAction ) ) {
+if ( Nonce_Verifier::verify_admin_referer( $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -102,7 +102,7 @@ if( Nonce_Verifier::verify_admin_referer( $defaultAction ) ) {
 To verify the AJAX request, to prevent any processing of
 requests which are passed in by third-party sites or systems.
 ```php
-if( Nonce_Verifier::verify_ajax_referer( $defaultAction ) ) {
+if ( Nonce_Verifier::verify_ajax_referer( $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
