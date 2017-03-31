@@ -14,6 +14,8 @@ class Nonce_Config {
 	private static $nonceLifetimeInSeconds;
 
 	/**
+     * Set nonce lifetime in seconds
+     *
 	 * @var string $nonceErrorMessage
 	 */
 	private static $nonce_error_message;
