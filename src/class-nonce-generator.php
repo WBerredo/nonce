@@ -6,7 +6,7 @@
  * Date: 2/25/17
  * Time: 1:14 AM
  */
-class NonceGenerator {
+class Nonce_Generator {
 	/**
 	 * @var $action
 	 */
@@ -35,7 +35,7 @@ class NonceGenerator {
 	 *
 	 * @return $this
 	 */
-	public function setAction( $action ) {
+	public function set_action( $action ) {
 		$this->action = $action;
 
 		return $this;
@@ -48,7 +48,7 @@ class NonceGenerator {
 	 *
 	 * @return $this
 	 */
-	public function setUrl( $url ) {
+	public function set_url($url ) {
 		$this->url = $url;
 
 		return $this;
@@ -61,7 +61,7 @@ class NonceGenerator {
 	 *
 	 * @return string
 	 */
-	public function generateNonceUrl( $keyName = '_wpnonce' ) {
+	public function generate_nonce_url($keyName = '_wpnonce' ) {
 		if ( !$this->url ) {
 		    return null;
         }
@@ -73,13 +73,13 @@ class NonceGenerator {
 	 * Retrieves the nonce hidden form field.
 	 *
 	 * @param string $name
-	 * @param bool   $referer
-	 * @param bool   $echo
+	 * @param string $referer
+	 * @param string $echo
 	 *
 	 * @return string
 	 */
-	public function generateNonceField( $name = '_wpnonce', $referer = true, $echo = false ) {
-		return wp_nonce_field( $this->action, $name, $referer, $echo );
+	public function generate_nonce_field($name = '_wpnonce', $referer = "referer", $echo = "echo" ) {
+		return wp_nonce_field( $this->action, $name, $referer=="referer", $echo=="echo" );
 	}
 
 	/**
@@ -87,7 +87,7 @@ class NonceGenerator {
 	 *
 	 * @return string
 	 */
-	public function generateNonce()	{
+	public function generate_nonce()	{
 		return wp_create_nonce( $this->action );
 	}
 
@@ -98,7 +98,7 @@ class NonceGenerator {
 	 *
 	 * @return string
 	 */
-	public function generateRefererField( $echo ) {
+	public function generate_referer_field($echo ) {
 		return wp_referer_field( $echo );
 	}
 
@@ -107,7 +107,7 @@ class NonceGenerator {
 	 *
 	 * @param $action
 	 */
-	public static function showAys( $action ) {
+	public static function show_ays($action ) {
 		wp_nonce_ays( $action );
 	}
 }

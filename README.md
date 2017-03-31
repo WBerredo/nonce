@@ -21,59 +21,59 @@ composer require wberredo/nonce
 ## Setup
 
 If you want to change some configs before you start to generate
-nonces, you will use *NonceConfig* class.
+nonces, you will use *Nonce_Config* class.
 ```php
 // set lifetime for 4 hours
-NonceConfig::setNonceLifetime( 4 * HOUR_IN_SECONDS );
+Nonce_Config::set_nonce_lifetime( 4 * HOUR_IN_SECONDS );
 
 // set message showed when showAys is called
-NonceConfig::setErrorMessage( "Are you sure" );
+Nonce_Config::set_error_message( "Are you sure" );
 ```
 
 ## Usage
-To create a nonce you have to use the *NonceGenerator* class and
-to verify a nonce already created you will need the *NonceVerifier*
+To create a nonce you have to use the *Nonce_Generator* class and
+to verify a nonce already created you will need the *Nonce_Verifier*
 class.
 
-### NonceGenerator
+### Nonce_Generator
 To generate a nonce
 ```php
-$nonceGen = new NonceGenerator( "default-action" );
-$nonce = $nonceGen->generateNonce();
+$nonce_gen = new Nonce_Generator( "default-action" );
+$nonce = $nonce_gen->generate_nonce();
 ```
 
 To generate a URL nonce
 ```php
 // you can also set parameters with set functions
-$nonceGen = new NonceGenerator();
-$completeUrl = $nonceGen
-                    ->setUrl( "http://github.com/WBerredo" )
-                    ->setAction( "default_action" )
-                    ->generateNonceUrl();
+$nonce_gen = new Nonce_Generator();
+$complete_url = $nonce_gen
+                    ->set_url( "http://github.com/WBerredo" )
+                    ->set_action( "default_action" )
+                    ->generate_nonce_url();
 ```
 
 To retrieve a nonce field.
 ```php
-$nonceGen = new NonceGenerator();
-$nonceField = $nonceGen
-                    ->setAction( "default_action" )
-                    ->generateNonceField( "nonce", true, false );
+$nonce_gen = new Nonce_Generator();
+$nonceField = $nonce_gen
+                    ->set_action( "default_action" )
+                    ->generate_nonce_field( "nonce", "referer", "do_not_echo" );
                     
 // to print the nonce field you have to set the last param as true
-$nonceGen
-    ->generateNonceField( "nonce", true, true );
+$nonce_gen
+    ->generate_nonce_field( "nonce", "referer", "echo" );
 ```
 
 To  Display 'Are you sure you want to do this?' message
-(or the new message set with NonceConfig#setErrorMessage)
+(or the new message set with Nonce_Config#setErrorMessage)
 to confirm the action being taken.
 ```php
-NonceGenerator::showAys( 'action' );
+Nonce_Generator::show_ays( 'action' );
 ```
-### NonceVerifier
+### Nonce_Verifier
 To verify a nonce
 ```php
-if( NonceVerifier::verify( $nonce, $defaultAction ) ) {
+if( Nonce_Verifier::verify( $nonce, $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -82,7 +82,7 @@ if( NonceVerifier::verify( $nonce, $defaultAction ) ) {
 
 To verify a URL nonce
 ```php
-if( NonceVerifier::verifyUrl( $completeUrl, $defaultAction ) ) { 
+if( Nonce_Verifier::verify_url( $complete_url, $defaultAction ) ) { 
 // if is valid
 } else {
 // if is not valid
@@ -92,7 +92,7 @@ if( NonceVerifier::verifyUrl( $completeUrl, $defaultAction ) ) {
 To tests either if the current request carries a valid nonce,
 or if the current request was referred from an administration screen
 ```php
-if( NonceVerifier::verifyAdminReferer( $defaultAction ) ) {
+if( Nonce_Verifier::verify_admin_referer( $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -102,7 +102,7 @@ if( NonceVerifier::verifyAdminReferer( $defaultAction ) ) {
 To verify the AJAX request, to prevent any processing of
 requests which are passed in by third-party sites or systems.
 ```php
-if( NonceVerifier::verifyAjaxReferer( $defaultAction ) ) {
+if( Nonce_Verifier::verify_ajax_referer( $defaultAction ) ) {
 // if is valid
 } else {
 // if is not valid
@@ -145,7 +145,7 @@ Use a separate database.
   /**
   * The path to the WordPress tests checkout.
   */
-  define('WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/');
+  define( 'WP_TESTS_DIR', '/home/berredo/Documents/repository/wordpress/wordpress-develop/tests/phpunit/' );
   ```
 
 6. **Go to plugin's folder**

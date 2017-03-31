@@ -6,7 +6,7 @@
  * Date: 2/25/17
  * Time: 1:28 AM
  */
-class NonceVerifier {
+class Nonce_Verifier {
 	/**
 	 * Verify nonce
 	 *
@@ -28,7 +28,7 @@ class NonceVerifier {
 	 *
 	 * @return boolean
 	 */
-	public static function verifyUrl( $nonceUrl, $action = -1, $keyName )	{
+	public static function verify_url($nonceUrl, $action = -1, $keyName )	{
 		$queryUrl = parse_url( $nonceUrl, PHP_URL_QUERY );
 		parse_str( $queryUrl, $params );
 
@@ -44,7 +44,7 @@ class NonceVerifier {
 	 *
 	 * @return false|int
 	 */
-	public static function verifyAdminReferer( $action = -1, $keyName = '_wpnonce' )
+	public static function verify_admin_referer($action = -1, $keyName = '_wpnonce' )
 	{
 		return check_admin_referer( $action, $keyName );
 	}
@@ -59,7 +59,7 @@ class NonceVerifier {
 	 *
 	 * @return false|int
 	 */
-	public static function verifyAjaxReferer( $action = -1, $keyName = '_wpnonce' )
+	public static function verify_ajax_referer($action = -1, $keyName = '_wpnonce' )
 	{
 		return check_ajax_referer( $action, $keyName );
 	}
